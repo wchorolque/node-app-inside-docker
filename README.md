@@ -14,6 +14,7 @@
 ```
 
 ## En la consola dentro de docker ejecutar
+Dentro del directorio /app iniciar el proyecto node
 ```bash
 > npm init
 ```
@@ -71,4 +72,15 @@ Dockerfile
 ```bash
 > docker build -t node-inside-container:1.0 . 
 > docker run --rm -p 3000:3000 node-inside-container:1.0
+```
+## Agregando librerias a node
+Ejecutar los siguiente comandos para iniciar un contenedor 
+```bash 
+> docker run --rm -i -t -v $(pwd)/src:/usr/src/app:rw node-inside-docker:1.0 sh
+```
+
+agregar las librerias mysql2 para conexion a mysql y mongoose para base de datos mongo
+```bash
+> npm install --save mysql2
+> npm install --save mongoose
 ```
