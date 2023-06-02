@@ -1,4 +1,5 @@
 # COMO CREAR UNA APP EN NODE DENTRO DE DOCKER
+>>>>>>> 7e1e9616ee61702fd58b394453a59bcaa559a7b8
 
 ## Crear el directorio base de todo el proyecto
 ```bash
