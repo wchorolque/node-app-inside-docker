@@ -1,27 +1,29 @@
-# Crear el directorio base de todo el proyecto
+# PASOS PARA CREAR UNA APP EN NODE DENTRO DE DOCKER
+
+## Crear el directorio base de todo el proyecto
 ```bash
 > mkdir proyecto
 > cd proyecto
 > mkdir src
 ```
 
-# Ejecutar en consola de linux
+## Ejecutar en consola de linux
 
 ```bash
 > docker run -i -t --rm -v $(pwd)/src:/app:rw -p 3000:3000 node:lts-alpine sh
 ```
 
-# En la consola dentro de docker ejecutar
+## En la consola dentro de docker ejecutar
 ```bash
 > npm init
 ```
 
-# Instalar las dependencias necesarias
+## Instalar las dependencias necesarias
 ```
 > npm install --save express
 ```
 
-# Agregar a app.js
+## Agregar a app.js
 ```js
 const express = require("express");
 
@@ -36,12 +38,12 @@ app.listen(3000, () => {
 });
 ```
 
-# Probar aplicacion y visitar el pruerto 3000 en el navegador
+## Probar aplicacion y visitar el pruerto 3000 en el navegador
 ```bash
 > node app.js
 ```
 
-# Configurar el archivo Dockerfile
+## Configurar el archivo Dockerfile
 ```Dockerfile
 FROM node:lts-alpine
 
@@ -58,14 +60,14 @@ EXPOSE 3000
 CMD ["node", "app.js"]
 ```
 
-# Configurar el archivo .dockerignore
+## Configurar el archivo .dockerignore
 ```.dockerignore
 node_modules
 Dockerfile
 .dockerignore
 ```
 
-# Compilar y Ejecutar con Docker
+## Compilar y Ejecutar con Docker
 ```bash
 > docker build -t node-inside-container:1.0 . 
 > docker run --rm -p 3000:3000 node-inside-container:1.0
